@@ -1,8 +1,10 @@
 
 import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface BlogCardProps {
+  id: string;
   title: string;
   excerpt: string;
   author: string;
@@ -12,7 +14,7 @@ interface BlogCardProps {
   featured?: boolean;
 }
 
-export const BlogCard = ({ title, excerpt, author, date, readTime, image, featured = false }: BlogCardProps) => {
+export const BlogCard = ({ id, title, excerpt, author, date, readTime, image, featured = false }: BlogCardProps) => {
   return (
     <article className={`group cursor-pointer animate-fade-in ${featured ? 'md:col-span-2' : ''}`}>
       <div className="glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 h-full">
@@ -58,9 +60,12 @@ export const BlogCard = ({ title, excerpt, author, date, readTime, image, featur
           <Button 
             variant="ghost" 
             className="p-0 h-auto text-primary hover:text-primary/80 group/btn"
+            asChild
           >
-            Read more 
-            <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
+            <Link to={`/blog/${id}`}>
+              Read more 
+              <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
+            </Link>
           </Button>
         </div>
       </div>

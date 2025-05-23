@@ -62,3 +62,68 @@
     @apply backdrop-blur-sm bg-glass-light border border-white/10;
   }
 }
+
+/* Blog content styling */
+.blog-content .prose {
+  @apply text-gray-300;
+}
+
+.blog-content .prose h1,
+.blog-content .prose h2,
+.blog-content .prose h3,
+.blog-content .prose h4 {
+  @apply text-white font-bold;
+}
+
+.blog-content .prose h1 {
+  @apply text-3xl mt-8 mb-4;
+}
+
+.blog-content .prose h2 {
+  @apply text-2xl mt-6 mb-3;
+}
+
+.blog-content .prose h3 {
+  @apply text-xl mt-5 mb-3;
+}
+
+.blog-content .prose p {
+  @apply my-4;
+}
+
+.blog-content .prose ul,
+.blog-content .prose ol {
+  @apply my-4 pl-6;
+}
+
+.blog-content .prose li {
+  @apply mb-1;
+}
+
+.blog-content .prose ul li {
+  @apply list-disc;
+}
+
+.blog-content .prose ol li {
+  @apply list-decimal;
+}
+
+.blog-content .prose img {
+  @apply rounded-lg my-6 mx-auto;
+}
+
+.blog-content .prose a {
+  @apply text-primary hover:underline;
+}
+
+.blog-content .prose blockquote {
+  @apply border-l-4 border-primary pl-4 italic my-6;
+}
+
+.blog-content .prose code {
+  @apply bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+.blog-content .prose pre {
+  @apply bg-gray-800 p-4 rounded-lg overflow-x-auto my-6;
+}

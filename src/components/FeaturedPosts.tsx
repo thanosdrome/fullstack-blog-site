@@ -3,6 +3,7 @@ import { BlogCard } from './BlogCard';
 
 const featuredPosts = [
   {
+    id: "1",
     title: "The Future of Artificial Intelligence in Creative Writing",
     excerpt: "Exploring how AI is transforming the landscape of creative writing and what it means for authors and readers alike. From automated content generation to AI-assisted editing, the creative industry is experiencing a revolutionary shift.",
     author: "Sarah Chen",
@@ -12,6 +13,7 @@ const featuredPosts = [
     featured: true
   },
   {
+    id: "2",
     title: "Building Sustainable Communities Through Digital Storytelling",
     excerpt: "How digital platforms are enabling communities to share their stories and create lasting connections across geographical boundaries.",
     author: "Marcus Johnson",
@@ -20,6 +22,7 @@ const featuredPosts = [
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=300&fit=crop"
   },
   {
+    id: "3",
     title: "The Art of Minimalist Design in Modern Web Development",
     excerpt: "Exploring the principles of minimalist design and how they apply to creating beautiful, functional web experiences.",
     author: "Elena Rodriguez",
@@ -28,6 +31,7 @@ const featuredPosts = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=300&fit=crop"
   },
   {
+    id: "4",
     title: "Remote Work Culture: Lessons from the Digital Nomad Movement",
     excerpt: "What traditional businesses can learn from digital nomads about creating flexible, productive work environments.",
     author: "David Park",
@@ -51,8 +55,8 @@ export const FeaturedPosts = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredPosts.map((post, index) => (
-            <BlogCard key={index} {...post} />
+          {featuredPosts.map((post) => (
+            <BlogCard key={post.id} {...post} />
           ))}
         </div>
       </div>

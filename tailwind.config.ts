@@ -110,8 +110,48 @@ export default {
 			},
 			backdropBlur: {
 				xs: '2px',
-			}
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '100%',
+						color: 'inherit',
+						a: {
+							color: 'inherit',
+							textDecoration: 'underline',
+							fontWeight: '500',
+						},
+						strong: {
+							fontWeight: '700',
+						},
+						code: {
+							background: 'rgba(0, 0, 0, 0.3)',
+							padding: '0.25rem',
+							borderRadius: '0.25rem',
+							fontWeight: '400',
+						},
+						blockquote: {
+							borderLeftColor: 'hsl(var(--primary))',
+						},
+						h1: {
+							fontWeight: '700',
+						},
+						h2: {
+							fontWeight: '600',
+						},
+						h3: {
+							fontWeight: '600',
+						},
+						h4: {
+							fontWeight: '600',
+						},
+					},
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require('@tailwindcss/typography'),
+	],
 } satisfies Config;
