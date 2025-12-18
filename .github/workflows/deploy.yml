@@ -21,11 +21,22 @@ jobs:
       - name: Add VM to known_hosts
         run: |
           ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Deploy to VM
+      
+      - name: Decode SSH key
         run: |
-          ssh deploy@${{ secrets.VM_HOST }} << 'EOF'
-            set -e
-            cd /home/deploy/BlogSphere
-            ./deploy.sh
-          EOF
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VM_SSH_KEY_B64 }}" | base64 -d > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Deploy
+        run: |
+          ssh -i ~/.ssh/id_ed25519 deploy@${{ secrets.VM_HOST }} "cd /home/deploy/BlogSphere && ./deploy.sh"
+      
+      - name: Assert SSH key exists
+        run: |
+          test -n "${{ secrets.VM_SSH_KEY }}" && echo "✅ secret injected" || (echo "❌ secret missing" && exit 1)
+      
+      - name: Assert SSH key exists
+        run: |
+          test -n "${{ secrets.VM_SSH_KEY }}" && echo "✅ secret injected" || (echo "❌ secret missing" && exit 1)
+
